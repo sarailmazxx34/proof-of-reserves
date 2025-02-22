@@ -4,7 +4,7 @@ This project aims to explore encrypted technology based on zk-SNARK and MerkleTr
 
 ## Project Introduction
 
-The project involves the use of zk-SNARK, which is a powerful cryptographic technology. We first place all users' deposits into a Merkle tree and then use zk-SNARK to prove that all the balances in the tree are non-negative and their sum equals a claimed value. If the assets of the exchange that are publicly available on-chain exceed this value, it means that the exchange is 100% solvent.
+The project involves the use of zk-SNARK, which is a powerful cryptographic technology. We first place all users' deposits into a Merkle tree and then use zk-SNARK to prove that all the balances in the tree are non-negative and their sum equals a claimed value. If the assets of the exchange that are publicly available on-chain exceed this value, it means that the exchange is 100% solvent
 
 By combining zk-SNARK with Merkle Tree, both the integrity and consistency of the data can be validated, while preserving transaction privacy. The prover can use zk-SNARK to prove that they know a Merkle proof that meets specific conditions without revealing the contents of the proof. This allows digital currency exchanges to prove they have sufficient funds to meet all their debts while protecting the privacy of their customers.
 
@@ -230,7 +230,23 @@ The userproof service is used to generate and persist user Merkle proofs.
 Run the following command to generate user proof data:
 
 ```Plaintext
-./main userproof
+./main userproof./{
+  "block_height": 363348,
+  "merkle": [
+    "acf931fe8980c6165b32fe7a8d25f779af7870a638599db1977d5309e24d2478",
+    "ee25997c2520236892c6a67402650e6b721899869dcf6715294e98c0b45623f9",
+    "790889ac7c0f7727715a7c1f1e8b05b407c4be3bd304f88c8b5b05ed4c0c24b7",
+    "facfd99cc4cfe45e66601b37a9637e17fb2a69947b1f8dc3118ed7a50ba7c901",
+    "8c871dd0b7915a114f274c354d8b6c12c689b99851edc55d29811449a6792ab7",
+    "eb4d9605966b26cfa3bf69b1afebe375d3d6aadaa7f2899d48899b6bd2fd6a43",
+    "daa1dc59f22a8601b489fc8a89da78bc35415291c62c185e711b8eef341e6e70",
+    "102907c1b95874e2893c6f7f06b45a3d52455d3bb17796e761df75aeda6aa065",
+    "baeede9b8e022bb98b63cb765ba5ca3e66e414bfd37702b349a04113bcfcaba6",
+    "b6f07be94b55144588b33ff39fb8a08004baa03eb7ff121e1847d715d0da6590",
+    "7d02c62697d783d85a51cd4f37a87987b8b3077df4ddd1227b254f59175ed1e4"
+  ],
+  "pos": 1465
+}
 ```
 
 Performance: Generates about 10k proofs per second for users in a 128GB memory and 32-core virtual machine.
